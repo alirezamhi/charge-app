@@ -1,0 +1,16 @@
+.index{
+    width:70vw;
+    height: 70vh;
+    overflow: hidden;
+    box-shadow: 10px 10px 30px rgb(61, 61, 61);
+}
+.buy{
+    height: 100%;
+    text-align: center;
+    width: 70%;
+}
+.pill{
+    height: 100%;
+    width: 30%;
+    text-align: center;
+}

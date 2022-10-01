@@ -1,0 +1,19 @@
+.hamraheAval_Button{
+    border: blue 1px solid;
+    background-color: #fff;
+}
+.mci_image{
+    width: 65px;
+    height: 60px;
+}
+.irc_image{
+    width: 85px;
+    height: 60px;
+}
+.rtl_image{
+    width: 75px;
+    height: 60px;
+}
+.deactive{
+    opacity: .3;
+}
