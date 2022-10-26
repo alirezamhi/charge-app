@@ -10,7 +10,8 @@ const PhoneProvider = ({ children }) => {
     phoneNumber: "",
     operator: "",
     price: "",
-    isError: false,
+    isErrorPhone: false,
+    isErrorAll:true
   };
   const [value, dispatch] = useReducer(ReduceApp, initialValue);
   return (

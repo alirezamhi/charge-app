@@ -8,14 +8,20 @@ const ReduceApp = (state,action) => {
     switch (action.type) {
         case ReduceAction.ENTER_PHONE:
             if(phoneNumberValidator(action.payload.number)){
-                return{phoneNumber:action.payload.number,operator:phoneNumberDetail(action.payload.number).operator,price: '',isError:false}
+                return{...state,phoneNumber:action.payload.number,operator:phoneNumberDetail(action.payload.number).operator,price: '',isErrorPhone:false}
             }else if(!phoneNumberValidator(action.payload.number)){
-                return{...state,isError:true}
+                return{...state,isErrorPhone:true}
             }
         case ReduceAction.CHANEGE_OPERATOR:
             return{...state,operator:action.payload.operator}
         case ReduceAction.PRICE_BUTTON:
             return{...state,price:action.payload.price}
+        case ReduceAction.IS_ERROR:
+            if(!state.phoneNumber||!state.operator||!state.price){
+                return {...state,isErrorAll:true}    
+              }else{
+                return{...state,isErrorAll:false}
+              }
         default:
             break;
     }

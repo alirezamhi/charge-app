@@ -8,6 +8,7 @@ import "./Operator.css";
 
 const Operator = () => {
   const { value, dispatch } = useContext(PhoneContext);
+  // console.log(value.operator);
   return (
     <div className="btn-group m-3">
       <button

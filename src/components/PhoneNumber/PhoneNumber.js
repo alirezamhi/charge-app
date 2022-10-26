@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PhoneContext } from "../../context/PhoneProvider";
 import { ReduceAction } from "../../reduce/ReduceAction";
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Notify } from "../notify/Notify";
 
 const PhoneNumber = () => {
   const [inputValue, SetInputValue] = useState("");
@@ -14,20 +11,25 @@ const PhoneNumber = () => {
       payload: { number: inputValue },
     });
   }
-  // value.isError&&Notify("شماره معتبر نیست","error")
 
   return (
-    <div className="input-group w-75">
-      <button onClick={clickHandler} className="btn btn-success">
-        <i className="bi bi-check-lg"></i>
-      </button>
-      <input
-        value={inputValue}
-        onChange={(e) => SetInputValue(e.target.value)}
-        className="form-control "
-        maxLength={11}
-      />
-      <ToastContainer/>
+    <div className="w-75">
+      <div className="input-group ">
+        <button onClick={clickHandler} className="btn btn-success">
+          <i className="bi bi-check-lg"></i>
+        </button>
+        <input
+          value={inputValue}
+          onChange={(e) => SetInputValue(e.target.value)}
+          className="form-control "
+          maxLength={11}
+        />
+      </div>
+      {value.isErrorPhone ? (
+        <span className="text-danger m-2">شماره را درست وارد کنید</span>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

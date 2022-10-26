@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { PhoneContext } from "../../context/PhoneProvider";
 import { addCommas } from "@persian-tools/persian-tools";
 import { ReduceAction } from "../../reduce/ReduceAction";
+import { digitsEnToFa } from "@persian-tools/persian-tools";
 
 const ShowPrice = () => {
   const { value, dispatch } = useContext(PhoneContext);
@@ -15,7 +16,7 @@ const ShowPrice = () => {
   if (value?.operator === "همراه اول") {
     arr = ["50000", "100000", "200000", "500000", "1000000"];
   }
-  console.log(value);
+  // console.log(value);
   return (
     <div className="btn-group">
       {arr.map((item, index) => {
@@ -30,7 +31,7 @@ const ShowPrice = () => {
             }
             key={index}
           >
-            {addCommas(item)}
+            {digitsEnToFa(addCommas(item))}
           </button>
         );
       })}
